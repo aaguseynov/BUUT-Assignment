@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DE5540012F82BB08008F749D /* LightweightNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = DE5540022F82BB08008F749D /* LightweightNetworking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DE55378A2F82BB07008F749D /* BUUT-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BUUT-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -14,7 +18,7 @@
 		DE55379C2F82BB08008F749D /* Exceptions for "BUUT-Assignment" folder in "BUUT-Assignment" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Sources/Info.plist,
 			);
 			target = DE5537892F82BB07008F749D /* BUUT-Assignment */;
 		};
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5540012F82BB08008F749D /* LightweightNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "BUUT-Assignment";
 			packageProductDependencies = (
+				DE5540022F82BB08008F749D /* LightweightNetworking */,
 			);
 			productName = "BUUT-Assignment";
 			productReference = DE55378A2F82BB07008F749D /* BUUT-Assignment.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = DE5537812F82BB07008F749D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DE5540032F82BB08008F749D /* XCRemoteSwiftPackageReference "LightweightNetworking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DE55378B2F82BB07008F749D /* Products */;
 			projectDirPath = "";
@@ -145,14 +154,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "BUUT-Assignment/Sources/Assets.xcassets";
 				DEVELOPMENT_TEAM = RZ9J8PVC6P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BUUT-Assignment/Info.plist";
+				INFOPLIST_FILE = "BUUT-Assignment/Sources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Application/LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -165,7 +175,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -177,14 +187,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "BUUT-Assignment/Sources/Assets.xcassets";
 				DEVELOPMENT_TEAM = RZ9J8PVC6P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BUUT-Assignment/Info.plist";
+				INFOPLIST_FILE = "BUUT-Assignment/Sources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Application/LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -197,7 +208,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -261,7 +272,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -318,7 +331,9 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -345,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE5540032F82BB08008F749D /* XCRemoteSwiftPackageReference "LightweightNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aaguseynov/LightweightNetworking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE5540022F82BB08008F749D /* LightweightNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE5540032F82BB08008F749D /* XCRemoteSwiftPackageReference "LightweightNetworking" */;
+			productName = LightweightNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE5537822F82BB07008F749D /* Project object */;
 }

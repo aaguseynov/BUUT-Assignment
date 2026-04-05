@@ -1,0 +1,15 @@
+{
+  "originHash" : "353cfcfe49bbdc61a8d8e9ec7e07bfa76f8499fed9a925fbaa8a2c0e1c0a93f9",
+  "pins" : [
+    {
+      "identity" : "lightweightnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aaguseynov/LightweightNetworking.git",
+      "state" : {
+        "revision" : "de0dc269eab6ce091831a885b32b93cb595dd709",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
