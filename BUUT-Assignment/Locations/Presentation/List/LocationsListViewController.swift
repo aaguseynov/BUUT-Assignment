@@ -8,10 +8,10 @@
 import UIKit
 
 final class LocationsListViewController: UIViewController {
-    private let viewModel: LocationsListViewModel
+    private let viewModel: any LocationsListViewModelProtocol
     private let listComponent: DiffableCollectionComponent<LocationListItemViewData>
 
-    init(viewModel: LocationsListViewModel) {
+    init(viewModel: any LocationsListViewModelProtocol) {
         self.viewModel = viewModel
         let cellRegistration = UICollectionView.CellRegistration<LocationListCollectionCell, LocationListItemViewData> { cell, _, item in
             cell.configure(with: item)

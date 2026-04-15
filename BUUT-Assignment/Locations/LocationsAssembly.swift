@@ -33,5 +33,9 @@ struct LocationsAssembly: Assembly {
         container.register(LocationsListItemMapping.self, scope: .weak) { _ in
             LocationsListItemMapper()
         }
+
+        container.register(LocationCoordinatesFormatting.self, scope: .weak) { _ in
+            DefaultLocationCoordinatesFormatting()
+        }
     }
 }

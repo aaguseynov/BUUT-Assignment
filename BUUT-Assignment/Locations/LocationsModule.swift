@@ -7,21 +7,25 @@
 
 import UIKit
 
-struct LocationsModuleInput {}
-
-class LocationsModuleOutput {
+/// Data and commands flowing **into** the feature from the parent (coordinator, tests). Extend when parent-driven reload, filters, or deeplinks are needed.
+struct LocationsModuleInput {
+    static let `default` = LocationsModuleInput()
     init() {}
 }
 
+/// Events and signals flowing **out** of the feature to the parent. Implemented by the list view model so `module.output` and presentation share one object.
+protocol LocationsModuleOutput: AnyObject {
+    /// User chose a row; parent should navigate (e.g. push detail).
+    var onLocationDetailRequested: ((Location) -> Void)? { get set }
+}
+
 final class LocationsModule: BaseModule<LocationsModuleInput, LocationsModuleOutput> {
-    /// Builds the locations list module when you already have a view model (e.g. tests).
+    /// Builds the locations list module when you already have a view model (e.g. tests). `viewModel` is also the module **output**.
     init(
-        viewModel: LocationsListViewModel,
-        input: LocationsModuleInput = LocationsModuleInput(),
-        output: LocationsModuleOutput = LocationsModuleOutput()
+        viewModel: LocationsListViewModelProtocol & LocationsModuleOutput,
+        input: LocationsModuleInput = .default
     ) {
-        let moduleOutput = output
         let viewController = LocationsListViewController(viewModel: viewModel)
-        super.init(view: viewController, input: input, output: moduleOutput)
+        super.init(view: viewController, input: input, output: viewModel)
     }
 }

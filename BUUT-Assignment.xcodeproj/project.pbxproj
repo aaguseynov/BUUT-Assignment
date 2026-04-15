@@ -12,6 +12,7 @@
 
 /* Begin PBXFileReference section */
 		DE55378A2F82BB07008F749D /* BUUT-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BUUT-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE5538A12F82BB08008F749D /* BUUT-AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUUT-AssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +34,11 @@
 			path = "BUUT-Assignment";
 			sourceTree = "<group>";
 		};
+		DE5538A22F82BB08008F749D /* BUUT-AssignmentTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BUUT-AssignmentTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DE55378C2F82BB07008F749D /* BUUT-Assignment */,
+				DE5538A22F82BB08008F749D /* BUUT-AssignmentTests */,
 				DE55378B2F82BB07008F749D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,13 +66,47 @@
 			isa = PBXGroup;
 			children = (
 				DE55378A2F82BB07008F749D /* BUUT-Assignment.app */,
+				DE5538A12F82BB08008F749D /* BUUT-AssignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXContainerItemProxy section */
+		DE5538A32F82BB08008F749D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE5537822F82BB07008F749D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE5537892F82BB07008F749D;
+			remoteInfo = "BUUT-Assignment";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXNativeTarget section */
+		DE5538A02F82BB08008F749D /* BUUT-AssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE5538A52F82BB08008F749D /* Build configuration list for PBXNativeTarget "BUUT-AssignmentTests" */;
+			buildPhases = (
+				DE5538A82F82BB08008F749D /* Sources */,
+				DE5538A92F82BB08008F749D /* Frameworks */,
+				DE5538AA2F82BB08008F749D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE5538A42F82BB08008F749D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DE5538A22F82BB08008F749D /* BUUT-AssignmentTests */,
+			);
+			name = BUUT-AssignmentTests;
+			packageProductDependencies = (
+			);
+			productName = BUUT-AssignmentTests;
+			productReference = DE5538A12F82BB08008F749D /* BUUT-AssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DE5537892F82BB07008F749D /* BUUT-Assignment */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE55379D2F82BB08008F749D /* Build configuration list for PBXNativeTarget "BUUT-Assignment" */;
@@ -91,6 +132,44 @@
 		};
 /* End PBXNativeTarget section */
 
+/* Begin PBXResourcesBuildPhase section */
+		DE5538AA2F82BB08008F749D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE5538A82F82BB08008F749D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE5538A92F82BB08008F749D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE5538A42F82BB08008F749D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE5537892F82BB07008F749D /* BUUT-Assignment */;
+			targetProxy = DE5538A32F82BB08008F749D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXProject section */
 		DE5537822F82BB07008F749D /* Project object */ = {
 			isa = PBXProject;
@@ -101,6 +180,10 @@
 				TargetAttributes = {
 					DE5537892F82BB07008F749D = {
 						CreatedOnToolsVersion = 26.4;
+					};
+					DE5538A02F82BB08008F749D = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = DE5537892F82BB07008F749D;
 					};
 				};
 			};
@@ -122,6 +205,7 @@
 			projectRoot = "";
 			targets = (
 				DE5537892F82BB07008F749D /* BUUT-Assignment */,
+				DE5538A02F82BB08008F749D /* BUUT-AssignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -155,7 +239,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "BUUT-Assignment/Sources/Assets.xcassets";
-				DEVELOPMENT_TEAM = RZ9J8PVC6P;
+				DEVELOPMENT_TEAM = RCVMS2D4SR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BUUT-Assignment/Sources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -188,7 +272,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "BUUT-Assignment/Sources/Assets.xcassets";
-				DEVELOPMENT_TEAM = RZ9J8PVC6P;
+				DEVELOPMENT_TEAM = RCVMS2D4SR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BUUT-Assignment/Sources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -338,6 +422,46 @@
 			};
 			name = Release;
 		};
+		DE5538AB2F82BB08008F749D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RCVMS2D4SR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aguseinov.BUUT-AssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BUUT-Assignment.app/BUUT-Assignment";
+			};
+			name = Debug;
+		};
+		DE5538AC2F82BB08008F749D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RCVMS2D4SR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aguseinov.BUUT-AssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BUUT-Assignment.app/BUUT-Assignment";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -355,6 +479,15 @@
 			buildConfigurations = (
 				DE55379E2F82BB08008F749D /* Debug */,
 				DE55379F2F82BB08008F749D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE5538A52F82BB08008F749D /* Build configuration list for PBXNativeTarget "BUUT-AssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE5538AB2F82BB08008F749D /* Debug */,
+				DE5538AC2F82BB08008F749D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

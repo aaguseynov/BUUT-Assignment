@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LocationsListViewModel {
+final class LocationsListViewModel: LocationsListViewModelProtocol, LocationsModuleOutput {
     private(set) var state: LocationsListState = .loading {
         didSet { onStateChange?() }
     }
@@ -19,12 +19,16 @@ final class LocationsListViewModel {
 
     var onStateChange: (() -> Void)?
 
-    /// Set by the composition root; delivers the selected domain model (coordinator stays free of view-data mapping).
+    /// Set by the parent flow; module output surface lives on the view model.
     var onLocationDetailRequested: ((Location) -> Void)?
 
     private let useCase: FetchLocationsUseCaseProtocol
     private let strings: any LocationsListStringsProviding
     private let itemMapping: any LocationsListItemMapping
+
+    private var loadTask: Task<Void, Never>?
+    /// Bumped on each `load()` / `cancelLoad()` so stale async completions do not mutate UI.
+    private var loadGeneration = 0
 
     var navigationTitle: String { strings.navigationTitle }
 
@@ -71,8 +75,24 @@ final class LocationsListViewModel {
         self.itemMapping = itemMapping
     }
 
+    deinit {
+        loadTask?.cancel()
+    }
+
     func load() {
-        Task { await performLoad() }
+        loadTask?.cancel()
+        loadGeneration += 1
+        let generation = loadGeneration
+        loadTask = Task { [weak self] in
+            await self?.performLoad(generation: generation)
+        }
+    }
+
+    func cancelLoad() {
+        loadTask?.cancel()
+        loadTask = nil
+        loadGeneration += 1
+        isFetching = false
     }
 
     func selectItem(_ item: LocationListItemViewData) {
@@ -82,7 +102,9 @@ final class LocationsListViewModel {
         onLocationDetailRequested?(location)
     }
 
-    private func performLoad() async {
+    private func performLoad(generation: Int) async {
+        guard generation == loadGeneration else { return }
+
         let keepListOrEmptyVisible: Bool = {
             switch state {
             case .loaded, .empty: true
@@ -98,9 +120,22 @@ final class LocationsListViewModel {
 
         do {
             let items = try await useCase.execute()
+            guard generation == loadGeneration else { return }
+            guard !Task.isCancelled else {
+                isFetching = false
+                return
+            }
             isFetching = false
             state = items.isEmpty ? .empty : .loaded(items)
+        } catch is CancellationError {
+            guard generation == loadGeneration else { return }
+            isFetching = false
         } catch {
+            guard generation == loadGeneration else { return }
+            guard !Task.isCancelled else {
+                isFetching = false
+                return
+            }
             isFetching = false
             state = .failed(FetchErrorFormatting.userMessage(for: error))
         }

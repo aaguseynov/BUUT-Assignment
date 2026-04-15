@@ -29,20 +29,20 @@ final class LocationsFlowCoordinator: DIAssemblyResultCoordinator<Void> {
             strings: container.resolve(LocationsListStringsProviding.self),
             itemMapping: container.resolve(LocationsListItemMapping.self)
         )
-        viewModel.onLocationDetailRequested = { [weak self] location in
-            self?.presentLocationDetail(for: location)
-        }
         let locationsModule = LocationsModule(viewModel: viewModel)
+        locationsModule.output.onLocationDetailRequested = { [weak self] location in
+            self?.startDetailChildFlow(for: location)
+        }
         navigationController.setViewControllers([locationsModule.view], animated: false)
     }
 
-    private func presentLocationDetail(for location: Location) {
-        let detailViewModel = LocationDetailViewModel(location: location)
-        detailViewModel.onCloseRequested = { [navigationController] in
-            navigationController?.popViewController(animated: true)
-        }
-
-        let detail = LocationDetailViewController(viewModel: detailViewModel)
-        navigationController?.pushViewController(detail, animated: true)
+    private func startDetailChildFlow(for location: Location) {
+        guard let navigationController else { return }
+        let detailFlow = LocationDetailFlowCoordinator(
+            navigationController: navigationController,
+            container: container,
+            location: location
+        )
+        coordinate(to: detailFlow)
     }
 }

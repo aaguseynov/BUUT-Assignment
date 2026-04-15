@@ -19,7 +19,9 @@ final class LocationsRepository: LocationsRepositoryProtocol, Sendable {
     }
 
     func fetchLocations() async throws -> [Location] {
+        try Task.checkCancellation()
         let response = try await networkService.request(LocationsEndpoint())
+        try Task.checkCancellation()
         return response.locations.map { mapper.map(dto: $0) }
     }
 }
