@@ -9,7 +9,7 @@ import Foundation
 import LightweightNetworking
 
 /// Fetches remote JSON and maps into domain models (Data layer).
-final class LocationsRepository: LocationsRepositoryProtocol, Sendable {
+final class LocationsRepository: LocationsRepositoryProtocol {
     private let networkService: any NetworkService
     private let mapper: any LocationMapping
 

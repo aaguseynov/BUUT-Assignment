@@ -8,6 +8,6 @@
 import Foundation
 
 /// Abstraction over location data sources (Dependency Inversion).
-protocol LocationsRepositoryProtocol: Sendable {
+protocol LocationsRepositoryProtocol {
     func fetchLocations() async throws -> [Location]
 }
