@@ -31,9 +31,9 @@ final class LocationDetailViewController: UIViewController {
 
     private var didApplyMapRegion = false
 
-    private let viewModel: LocationDetailViewModel
-    
-    init(viewModel: LocationDetailViewModel) {
+    private let viewModel: any LocationDetailViewModelProtocol
+
+    init(viewModel: any LocationDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupSubviews()

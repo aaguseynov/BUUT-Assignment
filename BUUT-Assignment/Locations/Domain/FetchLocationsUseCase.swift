@@ -8,7 +8,7 @@
 import Foundation
 
 /// Single-responsibility application boundary: load locations for presentation.
-protocol FetchLocationsUseCaseProtocol: Sendable {
+protocol FetchLocationsUseCaseProtocol {
     func execute() async throws -> [Location]
 }
 
@@ -20,6 +20,7 @@ struct FetchLocationsUseCase: FetchLocationsUseCaseProtocol {
     }
 
     func execute() async throws -> [Location] {
-        try await repository.fetchLocations()
+        try Task.checkCancellation()
+        return try await repository.fetchLocations()
     }
 }
